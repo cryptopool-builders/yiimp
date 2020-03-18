@@ -115,7 +115,7 @@ bool coind_validate_address(YAAMP_COIND *coind)
 	sprintf(params, "[\"%s\"]", coind->wallet);
 
 	json_value *json;
-	bool getaddressinfo = ((strcmp(coind->symbol,"DGB") == 0) || (strcmp(coind->symbol2, "DGB") == 0));
+    bool getaddressinfo = ((strcmp(coind->symbol,"DGB") == 0) || (strcmp(coind->symbol2, "DGB") == 0) || (strcmp(coind->symbol, "BTCV") == 0) || (strcmp(coind->symbol2, "BTCV") == 0) || (strcmp(coind->symbol, "BTCVT") == 0) || (strcmp(coind->symbol2, "BTCVT") == 0) || (strcmp(coind->symbol, "AUR") == 0) || (strcmp(coind->symbol2, "AUR") == 0) || (strcmp(coind->symbol, "BFL") == 0) || (strcmp(coind->symbol2, "BFL") == 0) || (strcmp(coind->symbol, "PIGY") == 0) || (strcmp(coind->symbol2, "PIGY") == 0));	
 	if(getaddressinfo)
 		json = rpc_call(&coind->rpc, "getaddressinfo", params);
 	else
@@ -196,6 +196,46 @@ void coind_init(YAAMP_COIND *coind)
 		}
 	}
 
+	    bool is_dgb = ((strcmp(coind->symbol,"DGB") == 0) || (strcmp(coind->symbol2, "DGB") == 0));
+
+    if (is_aur) {
+        if (json) json_value_free(json);
+
+        json = rpc_call(&coind->rpc, "getnewaddress", params);
+    }
+	
+	    bool is_btcv = ((strcmp(coind->symbol,"BTCV") == 0) || (strcmp(coind->symbol2, "BTCV") == 0));
+
+    if (is_aur) {
+        if (json) json_value_free(json);
+
+        json = rpc_call(&coind->rpc, "getnewaddress", params);
+    }
+	
+	    bool is_btcvt = ((strcmp(coind->symbol,"BTCVT") == 0) || (strcmp(coind->symbol2, "BTCVT") == 0));
+
+    if (is_aur) {
+        if (json) json_value_free(json);
+
+        json = rpc_call(&coind->rpc, "getnewaddress", params);
+    }
+	
+	    bool is_bfl = ((strcmp(coind->symbol,"BFL") == 0) || (strcmp(coind->symbol2, "BFL") == 0));
+
+    if (is_aur) {
+        if (json) json_value_free(json);
+
+        json = rpc_call(&coind->rpc, "getnewaddress", params);
+    }
+	
+	    bool is_pigy = ((strcmp(coind->symbol,"PIGY") == 0) || (strcmp(coind->symbol2, "PIGY") == 0));
+
+    if (is_aur) {
+        if (json) json_value_free(json);
+
+        json = rpc_call(&coind->rpc, "getnewaddress", params);
+    }
+	
 	if (json->u.object.values[0].value->type == json_string) {
 		strcpy(coind->wallet, json->u.object.values[0].value->u.string.ptr);
 	}
