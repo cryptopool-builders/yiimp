@@ -133,12 +133,16 @@ foreach ($algos as $item)
     echo '<td align="center" style="font-size: .8em; background-color: #f2f2f2;"></td>';
     echo "<td align=center style='font-size: .8em; background-color: #f2f2f2;'></td>";
     echo "<td align=center style='font-size: .8em; background-color: #f2f2f2;'></td>";
-    if ($algo == $best_algo) echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #f2f2f2;" title="normalized ' . $norm . '"><b>' . $price . '*</b></td>';
-    else if ($norm > 0) echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #f2f2f2;" title="normalized ' . $norm . '">' . $price . '</td>';
-    else echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #f2f2f2;"></td>';
-    echo '<td class="estimate" align="center" style="font-size: .8em; background-color: #f2f2f2;"></td>';
-    if ($algo == $best_algo) echo '<td align="center" style="font-size: .8em; background-color: #f2f2f2;" data="' . $btcmhday1 . '"><b>' . $btcmhday1 . '*</b></td>';
-    else echo '<td align="center" style="font-size: .8em; background-color: #f2f2f2;" data="' . $btcmhday1 . '">' . $btcmhday1 . '</td>';
+    if ($algo == $best_algo) 
+		echo '<td class="estimate" align="center" style="font-size: .8em;" title="normalized ' . $norm . '"><b>' . $price . '*</b></td>';
+    else if ($norm > 0) 
+		echo '<td class="estimate" align="center" style="font-size: .8em;" title="normalized ' . $norm . '">' . $price . '</td>';
+    else 
+		echo '<td class="estimate" align="center" style="font-size: .8em; border-top: 1px solid #5c5c5c;"></td>';
+    if ($algo == $best_algo) 
+		echo '<td align="center" style="font-size: .8em; border-top: 1px solid #5c5c5c;" data="' . $btcmhday1 . '"><b>' . $btcmhday1 . '*</b></td>';
+    else 
+	   echo '<td align="center" style="font-size: .8em; border-top: 1px solid #5c5c5c;" data="' . $btcmhday1 . '">' . $btcmhday1 . '</td>';
     echo "</tr>";
     if ($coins > 0)
     {
