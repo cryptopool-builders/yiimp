@@ -124,6 +124,10 @@ foreach ($list as $coin) {
                 ->memcache
                 ->set("yiimp-nethashrate-{$coin->symbol}", $network_hash, 60);
         }
+        else if($remote->getnetworkhashps()){
+            $network_hash = $remote->getnetworkhashps();
+            controller()->memcache->set("yiimp-nethashrate-{$coin->symbol}", $network_hash, 60);
+}
     }
     $network_hash = $network_hash ? Itoa2($network_hash) . 'h/s' : '';
 
